@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "ec552_hw1"
+version = "0.1.0"
+description = ""
+authors = ["Eric South <ericjohnsouth@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "1.20.1"
+PyYAML = "5.4.1"
+black = "^20.8b1"
+pytest = "^6.2.2"
+scipy = "^1.6.1"
+celloapi2 = "^0.2.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
