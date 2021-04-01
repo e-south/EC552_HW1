@@ -17,8 +17,8 @@ options = 'options.csv'
 signal_input = 2
 
 
-file_name = 'temp.path.json'  # Provide string of custom input file
-
+# Populate list of paths for all modified *.inpput.json files
+input_files = glob.glob("cello/input/input_modified/*.json")
 
 # Screen: iteratively pass modified inputs into CelloQuery() and record scores
 all_scores = []
