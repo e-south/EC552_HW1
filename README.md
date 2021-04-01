@@ -1,50 +1,17 @@
-# EC552_HW1
-Genetic Circuit Design
-# Template
-A template repository for ECE552 Homework 1
+# EC552
+## Documentation
+Our tool was designed to take a custom Eco2C1G3T1.input.json, recognize it’s available signal pairings, and then reference our catalogue of pairwise gate combinations (that were associated with previously successful CelloQuery() runs) to modify the custom input.
 
-This repository contains an input directory and an output directory. Part of your homework is plumbing these input files into celloapi2.
+## Navigating our Modules
+main.py: provide an custom Eco2C1G3T1.input.json file, receive an initial CelloQuery() score, then receive a second score after our modifications.
+linear_coeff_gridsearch.py: provide a list of *.input.json files and then conduct a parameter gridsearch, which produces a CSV file that maps CelloQuery() scores to parameter modifications, chassis, and signal pairs.
+screen_visuals.py: takes a CSV file (produced from linear_coeff_gridsearch.py) and produces a series of exploratory visuals.
+cello_pre_work.py: generates a set of *.input.json files with modified linear coefficients, which then feeds into the linear_coeff_gridsearch.py module.
 
-```
-input
-├── input_options
-│   └── options.csv
-├── input_sensor
-│   ├── Bth
-│   │   └── Bth1C1G1T1.input.json
-│   ├── Eco
-│   │   ├── Eco1C1G1T1.input.json
-│   │   ├── Eco1C2G2T2.input.json
-│   │   └── Eco2C1G3T1.input.json
-│   └── SC
-│       └── SC1C1G1T1.input.json
-├── output_device
-│   ├── Bth
-│   │   └── Bth1C1G1T1.output.json
-│   ├── Eco
-│   │   ├── Eco1C1G1T1.output.json
-│   │   ├── Eco1C2G2T2.output.json
-│   │   └── Eco2C1G3T1.output.json
-│   └── SC
-│       └── SC1C1G1T1.output.json
-├── ucf
-│   ├── Bth
-│   │   └── Bth1C1G1T1.UCF.json
-│   ├── Eco
-│   │   ├── Eco1C1G1T1.UCF.json
-│   │   ├── Eco1C2G2T2.UCF.json
-│   │   └── Eco2C1G3T1.UCF.json
-│   └── SC
-│       └── SC1C1G1T1.UCF.json
-└── verilog_files
-    ├── and.v
-    ├── nand.v
-    ├── struct.v
-    └── xor.v
+## Project Dependencies
+We used Poetry (https://python-poetry.org/) for dependencies management in our repository. The celloapi2 usage example (https://github.com/CIDARLAB/celloapi2) should run without errors-- so long as you 1) call poetry install to get all dependencies and 2) have a docker container running the cidarlab/cello-dnacompiler:latest on your local machine. I’ve modified the original template’s directory structure (https://github.com/CIDARLAB/homework1-template), as Celloapi2/CelloQuery() was throwing errors for some reason--Jackson helped me troubleshoot this early on. Try running main.py on your machine (you should only need to change the absolute paths for in_dir and out_dir).
 
-```
-
-# Suggested Reading
+## Suggested Reading
 1. Vaidyanathan, P., Der, B. S., Bhatia, S., Roehner, N., Silva, R., Voigt, C. A., & Dens- more, D. (2015). A Framework for Genetic Logic Synthesis. Proceedings of the IEEE, 103(11), 2196-2207.
 (This Paper should help understand the basic framework, terms and defini- tions of Logic Synthesis applied for Genetic circuits. Specifically, Sections 1,2,3 as well as Fig 2 will be helpful)
 2. Yaman, F., Bhatia, S., Adler, A., Densmore, D., & Beal, J. (2012). Automated selec- tion of synthetic biology parts for genetic regulatory networks. ACS synthetic biology, 1(8), 332-344.
