@@ -46,7 +46,7 @@ def optimization(data, name1, name2, promoter, rbs, name_list, refer_table):
         if data[i]['collection'] == name1:
             if search_table(data, i, name2, refer_table, name_list) == 1: continue
             value_change(data, i, name2, promoter, rbs)
-    output_json(f"{in_dir}/{chassis}.input.range_p_{promoter}_r_{rbs}.json", data)
+    output_json(f"{in_dir}/{chassis}.input.p_{promoter}_r_{rbs}.json", data)
 
 # get name list of all input sensors in the test input json file
 def get_name(data):
